@@ -33,3 +33,10 @@ services:
       - ./datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml
     ports:
       - "3000:3000"
+
+  alertmanager:
+    image: prom/alertmanager
+    ports:
+      - "9093:9093"
+    volumes:
+      - ./alertmanager.yml:/etc/alertmanager/alertmanager.yml
