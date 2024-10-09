@@ -7,9 +7,9 @@ scrape_configs:
       - targets: ['cadvisor:8080']
 
   - job_name: 'prometheus'
-    scrape_interval: 5s
+    scrape_interval: 15s
     static_configs:
-      - targets: ['prometheus:8080']
+      - targets: ['localhost:8080']
 
 # global:
 #   scrape_interval: 15s #Scrape interval to every 15 seconds.
