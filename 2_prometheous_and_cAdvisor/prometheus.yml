@@ -13,14 +13,12 @@ scrape_configs:
       - targets: ['prometheus:9090']
 
 
-# alerting:
-#   alertmanagers:
-#   - static_configs:
-#     - targets: ['alertmanager:9093']  # Alertmanager container
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+            - "prometheus-msteams:2000"
 
-
-# rule_files:
-#   - "/etc/prometheus/alert_rules.yml"  # Prometheus alert rules
-
-
+rule_files:
+  - "alert_rules.yml"
 

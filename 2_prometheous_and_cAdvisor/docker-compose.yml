@@ -53,6 +53,17 @@ services:
 
     command: -config.file=/etc/promtail/promtail-config.yaml
 
+  prometheus-msteams:
+    image: quay.io/prometheusmsteams/prometheus-msteams
+    container_name: prometheus-msteams
+    environment:
+      TEAMS_INCOMING_WEBHOOK_URL: "<--->" # actual webhook URL
+      TEAMS_REQUEST_URI: "alertmanager"
+    ports:
+      - "2000:2000"
+    depends_on:
+      - prometheus
+
 volumes:
   natures-cart_celery-logs:
     external: true
