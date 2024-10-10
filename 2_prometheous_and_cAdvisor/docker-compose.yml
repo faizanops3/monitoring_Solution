@@ -54,7 +54,7 @@ services:
     command: -config.file=/etc/promtail/promtail-config.yaml
 
   prometheus-msteams:
-    image: quay.io/prometheusmsteams/prometheus-msteams
+    image: faizan44/prometheus-msteams-arm64
     container_name: prometheus-msteams
     environment:
       TEAMS_INCOMING_WEBHOOK_URL: "<--->" # actual webhook URL
