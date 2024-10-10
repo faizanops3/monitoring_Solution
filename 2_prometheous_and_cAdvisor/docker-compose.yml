@@ -48,7 +48,7 @@ services:
     image: grafana/promtail
     volumes:
       # - /var/log:/var/log
-      - .promtail-config.yaml:/etc/promtail/promtail-config.yaml
+      - ./promtail-config.yaml:/etc/promtail/promtail-config.yaml
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
       - /var/run/docker.sock:/var/run/docker.sock
 
