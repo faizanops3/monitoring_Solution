@@ -1,7 +1,5 @@
 version: "3"
 
-# name: monitor
-
 services:
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:v0.47.1
@@ -51,5 +49,6 @@ services:
       - ./promtail-config.yaml:/etc/promtail/promtail-config.yaml
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
       - /var/run/docker.sock:/var/run/docker.sock
+      - natures-cart_celery-logs:/app/logs
 
     command: -config.file=/etc/promtail/promtail-config.yaml
