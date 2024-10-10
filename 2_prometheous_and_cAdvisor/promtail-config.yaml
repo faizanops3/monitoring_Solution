@@ -33,5 +33,5 @@ scrape_configs:
           - localhost
         labels:
           job: celery
-          __path__: /app/logs/*.log
-          # __path__: /app/logs/celery.log
+          __path__: /app/logs/celery.log
+          # __path__: /app/logs/*.log
