@@ -52,3 +52,7 @@ services:
       - natures-cart_celery-logs:/app/logs
 
     command: -config.file=/etc/promtail/promtail-config.yaml
+
+volumes:
+  natures-cart_celery-logs:
+    external: true
