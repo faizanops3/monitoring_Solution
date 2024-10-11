@@ -20,5 +20,7 @@ alerting:
         - alertmanager:9093
 
 rule_files:
-  - "/etc/prometheus/alert.rules"
+  - "alert_rules.yml"
 
+# rule_files:
+#   - "/etc/prometheus/alert.rules"
