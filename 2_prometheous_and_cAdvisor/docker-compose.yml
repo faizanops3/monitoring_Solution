@@ -77,32 +77,34 @@ services:
     ports:
       - "9093:9093"
 
-  # prometheus-msteams:
-  #   image: faizan44/prometheus-msteams-arm64
-  #   # container_name: prometheus-msteams
-  #   environment:
-  #     TEAMS_INCOMING_WEBHOOK_URL: "<--->"
-  #     TEAMS_REQUEST_URI: "alertmanager"
-  #   ports:
-  #     - "2000:2000"
-  #   # volumes:
-  #   #   - ./prometheus-msteams/default-message-card.tmpl:/default-message-card.tmpl
-  #   # command: -server -template-file /default-message-card.tmpl
-
   prometheus-msteams:
     image: faizan44/prometheus-msteams-arm64
+    # container_name: prometheus-msteams
+    environment:
+      TEAMS_INCOMING_WEBHOOK_URL: "<--->"
+      TEAMS_REQUEST_URI: "alertmanager"
     ports:
       - "2000:2000"
-    environment:
-      TEAMS_INCOMING_WEBHOOK_URL: "<--->" # Your actual webhook URL here
-      TEAMS_REQUEST_URI: "alertmanager"
-    #   CONFIG_FILE: "/tmp/config.yml"
-    #   TEMPLATE_FILE: "/tmp/card.tmpl"
     # volumes:
-    #   - /opt/prometheus-msteams/config.yml:/tmp/config.yml
-    #   - /opt/prometheus-msteams/card.tmpl:/tmp/card.tmpl
+    #   - ./prometheus-msteams/default-message-card.tmpl:/default-message-card.tmpl
+    command: -server -template-file /default-message-card.tmpl
     depends_on:
       - prometheus
+
+  # prometheus-msteams:
+  #   image: faizan44/prometheus-msteams-arm64
+  #   ports:
+  #     - "2000:2000"
+  #   environment:
+  #     TEAMS_INCOMING_WEBHOOK_URL: "<--->" # Your actual webhook URL here
+  #     TEAMS_REQUEST_URI: "alertmanager"
+  #   #   CONFIG_FILE: "/tmp/config.yml"
+  #   #   TEMPLATE_FILE: "/tmp/card.tmpl"
+  #   # volumes:
+  #   #   - /opt/prometheus-msteams/config.yml:/tmp/config.yml
+  #   #   - /opt/prometheus-msteams/card.tmpl:/tmp/card.tmpl
+  #   depends_on:
+  #     - prometheus
 
 volumes:
   natures-cart_celery-logs:
