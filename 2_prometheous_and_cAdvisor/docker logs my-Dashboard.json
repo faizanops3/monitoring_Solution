@@ -18,14 +18,14 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 2,
+  "id": 1,
   "links": [],
   "panels": [
     {
       "datasource": {
         "default": false,
         "type": "loki",
-        "uid": "ae0fp2vbbrvnkd"
+        "uid": "ae0ja4b7mht6oc"
       },
       "gridPos": {
         "h": 8,
@@ -48,12 +48,13 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "ae0fp2vbbrvnkd"
+            "uid": "ae0ja4b7mht6oc"
           },
           "editorMode": "builder",
-          "expr": "{filename=\"/app/logs/debug.log\"} |= ``",
+          "expr": "{filename=\"/app/logs/celery/debug.log\"} |= ``",
+          "hide": false,
           "queryType": "range",
-          "refId": "A"
+          "refId": "B"
         }
       ],
       "title": "Celery - debug.log",
@@ -63,7 +64,7 @@
       "datasource": {
         "default": false,
         "type": "loki",
-        "uid": "ae0fp2vbbrvnkd"
+        "uid": "ae0ja4b7mht6oc"
       },
       "gridPos": {
         "h": 8,
@@ -86,10 +87,10 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "ae0fp2vbbrvnkd"
+            "uid": "ae0ja4b7mht6oc"
           },
           "editorMode": "builder",
-          "expr": "{filename=\"/app/logs/celery.log\"} |= ``",
+          "expr": "{filename=\"/app/logs/celery/celery.log\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }
@@ -101,7 +102,45 @@
       "datasource": {
         "default": false,
         "type": "loki",
-        "uid": "ae0fp2vbbrvnkd"
+        "uid": "ae0ja4b7mht6oc"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 16
+      },
+      "id": 5,
+      "options": {
+        "dedupStrategy": "none",
+        "enableLogDetails": true,
+        "prettifyLogMessage": false,
+        "showCommonLabels": false,
+        "showLabels": false,
+        "showTime": false,
+        "sortOrder": "Descending",
+        "wrapLogMessage": false
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "ae0ja4b7mht6oc"
+          },
+          "editorMode": "builder",
+          "expr": "{filename=\"/app/logs/cron/debug.log\"} |= ``",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Cron - debug.logs",
+      "type": "logs"
+    },
+    {
+      "datasource": {
+        "name": "loki",
+        "type": "loki",
+        "uid": "ae0ja4b7mht6oc"
       },
       "fieldConfig": {
         "defaults": {
@@ -133,7 +172,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 16
+        "y": 24
       },
       "id": 2,
       "options": {
@@ -153,28 +192,27 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "ae0fp2vbbrvnkd"
+            "uid": "ae0ja4b7mht6oc"
           },
-          "editorMode": "builder",
-          "expr": "{container=\"natures-cart_cron_1\"} |= ``",
+          "expr": "{container=\"natures-cart_cron_1\"}",
           "queryType": "range",
           "refId": "A"
         }
       ],
-      "title": "Cron",
+      "title": "Cron - container logs",
       "type": "table"
     },
     {
       "datasource": {
         "default": false,
         "type": "loki",
-        "uid": "ae0fp2vbbrvnkd"
+        "uid": "ae0ja4b7mht6oc"
       },
       "gridPos": {
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 24
+        "y": 32
       },
       "id": 1,
       "options": {
@@ -191,10 +229,11 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "ae0fp2vbbrvnkd"
+            "uid": "ae0ja4b7mht6oc"
           },
           "editorMode": "builder",
           "expr": "{container=\"natures-cart_web_1\"} |= ``",
+          "hide": false,
           "queryType": "range",
           "refId": "A"
         }
@@ -217,6 +256,6 @@
   "timezone": "browser",
   "title": "docker logs my",
   "uid": "ae0fqf77r51xcf",
-  "version": 5,
+  "version": 3,
   "weekStart": ""
 }
