@@ -33,6 +33,44 @@
         "x": 0,
         "y": 0
       },
+      "id": 4,
+      "options": {
+        "dedupStrategy": "none",
+        "enableLogDetails": true,
+        "prettifyLogMessage": false,
+        "showCommonLabels": false,
+        "showLabels": false,
+        "showTime": false,
+        "sortOrder": "Descending",
+        "wrapLogMessage": false
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "ae0fp2vbbrvnkd"
+          },
+          "editorMode": "builder",
+          "expr": "{filename=\"/app/logs/debug.log\"} |= ``",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Celery - debug.log",
+      "type": "logs"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "loki",
+        "uid": "ae0fp2vbbrvnkd"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 8
+      },
       "id": 3,
       "options": {
         "dedupStrategy": "none",
@@ -51,12 +89,12 @@
             "uid": "ae0fp2vbbrvnkd"
           },
           "editorMode": "builder",
-          "expr": "{job=\"celery\"} |= ``",
+          "expr": "{filename=\"/app/logs/celery.log\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }
       ],
-      "title": "Celery",
+      "title": "Celery - celery.log",
       "type": "logs"
     },
     {
@@ -95,7 +133,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 8
+        "y": 16
       },
       "id": 2,
       "options": {
@@ -136,7 +174,7 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 16
+        "y": 24
       },
       "id": 1,
       "options": {
@@ -172,13 +210,13 @@
     "list": []
   },
   "time": {
-    "from": "now-3h",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "docker logs my",
   "uid": "ae0fqf77r51xcf",
-  "version": 3,
+  "version": 5,
   "weekStart": ""
 }
