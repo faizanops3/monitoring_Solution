@@ -11,4 +11,5 @@
 
 ```sh
 curl -X POST -d @prom-alert.json http://localhost:2000/alertmanager
+curl -X POST -d @prom-alert.json http://prometheus-msteams:2000/alertmanager
 ```
