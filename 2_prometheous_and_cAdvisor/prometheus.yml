@@ -16,8 +16,8 @@ scrape_configs:
 alerting:
   alertmanagers:
     - static_configs:
-        - targets:
-            - "prometheus-msteams:2000"
+        - targets: ['prometheus-msteams:2000']
+
 
 rule_files:
   - "alert_rules.yml"
