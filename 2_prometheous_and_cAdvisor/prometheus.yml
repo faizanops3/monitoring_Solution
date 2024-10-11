@@ -13,6 +13,12 @@ scrape_configs:
       - targets: ['prometheus:9090']
 
 
+# rule_files:
+#   - "alert_rules.yml"
+
+
+
+
 alerting:
   alertmanagers:
     - static_configs:

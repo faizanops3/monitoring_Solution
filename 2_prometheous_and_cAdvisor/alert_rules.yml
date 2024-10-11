@@ -2,7 +2,7 @@ groups:
   - name: cpu_usage_alerts
     rules:
       - alert: HighCpuUsage
-        expr: sum(rate(container_cpu_user_seconds_total{image!=""}[5m]) * 100) > 10
+        expr: sum(rate(container_cpu_user_seconds_total{image!=""}[5m])) * 100 > 10
         for: 5s
         # for: 1m
         labels:
