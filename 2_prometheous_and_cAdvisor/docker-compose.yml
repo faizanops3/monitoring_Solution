@@ -81,8 +81,8 @@ services:
     image: faizan44/prometheus-msteams-arm64
     # container_name: prometheus-msteams
     environment:
-      - TEAMS_INCOMING_WEBHOOK_URL=<--->
-      - TEAMS_REQUEST_URI=alertmanager
+      TEAMS_INCOMING_WEBHOOK_URL: "<--->"
+      TEAMS_REQUEST_URI: "alertmanager"
     ports:
       - "2000:2000"
     volumes:
