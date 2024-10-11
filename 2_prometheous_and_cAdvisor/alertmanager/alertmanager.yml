@@ -15,7 +15,7 @@ receivers:
   - name: 'prometheus-msteams'
     webhook_configs:
       - send_resolved: true
-        url: 'http://http://localhost:2000/alertmanager'
+        url: 'http://35.176.38.47:2000/alertmanager'
 
 
 # route:
