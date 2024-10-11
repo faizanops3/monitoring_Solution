@@ -8,10 +8,10 @@ route:
   group_wait: 10s
   group_interval: 5m
   repeat_interval: 1h
-  receiver: 'teams'
+  receiver: 'prometheus-msteams'
 
 receivers:
-  - name: 'teams'
+  - name: 'prometheus-msteams'
     webhook_configs:
       - send_resolved: true
         url: 'http://prometheus-msteams:2000/alertmanager'
