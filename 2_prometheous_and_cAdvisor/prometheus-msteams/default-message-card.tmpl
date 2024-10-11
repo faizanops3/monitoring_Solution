@@ -1,0 +1,23 @@
+{
+  "@type": "MessageCard",
+  "@context": "http://schema.org/extensions",
+  "themeColor": "{{ if eq .Status "firing" }}FF0000{{ else }}00FF00{{ end }}",
+  "summary": "{{ .CommonAnnotations.summary }}",
+  "sections": [
+    {
+      "activityTitle": "**Alert**: {{ .CommonAnnotations.summary }}",
+      "activitySubtitle": "Status: {{ .Status }}",
+      "facts": [
+        {
+          "name": "Description",
+          "value": "{{ .CommonAnnotations.description }}"
+        },
+        {
+          "name": "Severity",
+          "value": "{{ .CommonLabels.severity }}"
+        }
+      ],
+      "markdown": true
+    }
+  ]
+}
