@@ -27,12 +27,20 @@ scrape_configs:
       - source_labels: ['__meta_docker_container_label_logging_jobname']
         target_label: 'job'
     
-  # - job_name: celeryy
-  #   static_configs:
-  #     - targets:
-  #         - localhost
-  #       labels:
-  #         job: celery
-  #         __path__: /app/logs/debug.log
-  #         # __path__: /app/logs/celery.log
-  #         # __path__: /app/logs/*.log
+  - job_name: celeryy
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: celeryy
+          __path__: /app/logs/*.log
+          # __path__: /app/logs/debug.log
+          # __path__: /app/logs/celery.log
+
+  - job_name: cron
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: cron
+          __path__: /app/logs/*.log
