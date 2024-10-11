@@ -9,4 +9,4 @@ groups:
           severity: critical
         annotations:
           summary: "High CPU Usage Detected"
-          description: "CPU usage is above 5% on instance."
+          description: "CPU usage is above 5% for the last 5 minutes."
