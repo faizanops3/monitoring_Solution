@@ -33,7 +33,7 @@ scrape_configs:
           - localhost
         labels:
           job: celeryy
-          __path__: /app/logs/*.log
+          __path__: /app/logs/celery/*.log
           # __path__: /app/logs/debug.log
           # __path__: /app/logs/celery.log
 
@@ -43,4 +43,4 @@ scrape_configs:
           - localhost
         labels:
           job: cron
-          __path__: /app/logs/*.log
+          __path__: /app/logs/cron/*.log
