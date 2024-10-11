@@ -6,44 +6,44 @@ global:
 
 
 
-route:
-  group_by: ['alertname']
-  group_wait: 30s
-  group_interval: 5m
-  repeat_interval: 1h
-  receiver: 'email_notifications'
-
-receivers:
-  - name: 'email_notifications'
-    email_configs:
-      - to: 'your-email@example.com'  # Change to your email address
-        from: 'alertmanager@example.com'  # Change to your from email address
-        smarthost: 'smtp.example.com:587'  # Change to your SMTP server address
-        auth_username: 'your-email@example.com'  # SMTP username
-        auth_password: 'your-email-password'  # SMTP password
-        send_resolved: true
-
-
-
-
-
-
-
-
-
-
-
-
-
 # route:
 #   group_by: ['alertname']
-#   group_wait: 10s
+#   group_wait: 30s
 #   group_interval: 5m
 #   repeat_interval: 1h
-#   receiver: 'prometheus-msteams'
+#   receiver: 'email_notifications'
 
 # receivers:
-#   - name: 'prometheus-msteams'
-#     webhook_configs:
-#       - send_resolved: true
-#         url: 'http://prometheus-msteams:2000/alertmanager'
+#   - name: 'email_notifications'
+#     email_configs:
+#       - to: 'your-email@example.com'  # Change to your email address
+#         from: 'alertmanager@example.com'  # Change to your from email address
+#         smarthost: 'smtp.example.com:587'  # Change to your SMTP server address
+#         auth_username: 'your-email@example.com'  # SMTP username
+#         auth_password: 'your-email-password'  # SMTP password
+#         send_resolved: true
+
+
+
+
+
+
+
+
+
+
+
+
+
+route:
+  group_by: ['alertname']
+  group_wait: 10s
+  group_interval: 5s
+  repeat_interval: 10s
+  receiver: 'prometheus-msteams'
+
+receivers:
+  - name: 'prometheus-msteams'
+    webhook_configs:
+      - send_resolved: true
+        url: 'http://prometheus-msteams:2000/alertmanager'

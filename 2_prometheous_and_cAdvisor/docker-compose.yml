@@ -78,19 +78,19 @@ services:
     ports:
       - "9093:9093"
 
-  # prometheus-msteams:
-  #   image: faizan44/prometheus-msteams-arm64
-  #   container_name: prometheus-msteams
-  #   environment:
-  #     TEAMS_INCOMING_WEBHOOK_URL: "https://alazkaai.webhook.office.com/webhookb2/9eaf5da9-fb45-4666-a36e-729e576178e0@7eaff8d0-7379-456d-8b49-b0ca02a107cb/IncomingWebhook/a7cf852772fe4d84af7837ff62e26137/958ff4fd-ee53-46ed-889b-6035009ba951/V2xxMwrMmGwB4dBi3NeCgFbY2CfKyykyMs5B42K7XCjXo1"
-  #     TEAMS_REQUEST_URI: "alertmanager"
-  #   ports:
-  #     - "2000:2000"
-  #   # volumes:
-  #   #   - ./prometheus-msteams/default-message-card.tmpl:/default-message-card.tmpl
-  #   # command: -server -template-file /default-message-card.tmpl
-  #   depends_on:
-  #     - prometheus
+  prometheus-msteams:
+    image: faizan44/prometheus-msteams-arm64
+    container_name: prometheus-msteams
+    environment:
+      TEAMS_INCOMING_WEBHOOK_URL: "https://alazkaai.webhook.office.com/webhookb2/9eaf5da9-fb45-4666-a36e-729e576178e0@7eaff8d0-7379-456d-8b49-b0ca02a107cb/IncomingWebhook/a7cf852772fe4d84af7837ff62e26137/958ff4fd-ee53-46ed-889b-6035009ba951/V2xxMwrMmGwB4dBi3NeCgFbY2CfKyykyMs5B42K7XCjXo1"
+      TEAMS_REQUEST_URI: "alertmanager"
+    ports:
+      - "2000:2000"
+    # volumes:
+    #   - ./prometheus-msteams/default-message-card.tmpl:/default-message-card.tmpl
+    # command: -server -template-file /default-message-card.tmpl
+    depends_on:
+      - prometheus
 
   # prometheus-msteams:
   #   image: faizan44/prometheus-msteams-arm64
