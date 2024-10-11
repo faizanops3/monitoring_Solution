@@ -87,7 +87,7 @@ services:
       - "2000:2000"
     # volumes:
     #   - ./prometheus-msteams/default-message-card.tmpl:/default-message-card.tmpl
-    command: -server -template-file /default-message-card.tmpl
+    # command: -server -template-file /default-message-card.tmpl
     depends_on:
       - prometheus
 
