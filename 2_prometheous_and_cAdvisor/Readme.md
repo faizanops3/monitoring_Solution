@@ -7,7 +7,7 @@
 
 ---
 
-### Simulating Alerts
+### Simulating Alertss
 
 ```sh
 curl -X POST -d @prom-alert.json http://localhost:2000/alertmanager
