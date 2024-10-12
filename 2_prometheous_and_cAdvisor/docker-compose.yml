@@ -35,6 +35,7 @@ services:
 
     volumes:
       - ./datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml
+      - grafana_data:/var/lib/grafana
     ports:
       - "3000:3000"
 
@@ -81,6 +82,7 @@ services:
       - prometheus
 
 volumes:
+  grafana_data:
   natures-cart_celery-logs:
     external: true
   natures-cart_cron-logs:
