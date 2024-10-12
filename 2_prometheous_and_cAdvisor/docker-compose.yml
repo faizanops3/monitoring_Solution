@@ -25,11 +25,14 @@ services:
   grafana:
     image: grafana/grafana
     environment:
-      GF_SECURITY_DISABLE_INITIAL_ADMIN_CREATION: "true"
-      GF_AUTH_ANONYMOUS_ENABLED: "true"
-      GF_AUTH_ANONYMOUS_ORG_ROLE: "Admin"
-      GF_AUTH_DISABLE_SIGNOUT_MENU: "true"
-      GF_AUTH_DISABLE_LOGIN_FORM: "true"
+      # GF_SECURITY_DISABLE_INITIAL_ADMIN_CREATION: "true"
+      # GF_AUTH_ANONYMOUS_ENABLED: "true"
+      # GF_AUTH_ANONYMOUS_ORG_ROLE: "Admin"
+      # GF_AUTH_DISABLE_SIGNOUT_MENU: "true"
+      # GF_AUTH_DISABLE_LOGIN_FORM: "true"
+      GF_SECURITY_ADMIN_USER: "admin"
+      GF_SECURITY_ADMIN_PASSWORD: "admin"
+
     volumes:
       - ./datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml
     ports:
@@ -55,21 +58,6 @@ services:
 
     command: -config.file=/etc/promtail/promtail-config.yaml
 
-  # prometheus-msteams:
-  #   image: faizan44/prometheus-msteams-arm64
-  #   ports:
-  #     - "2000:2000"
-  #   environment:
-  #     TEAMS_INCOMING_WEBHOOK_URL: "<--->" # Your actual webhook URL here
-  #     TEAMS_REQUEST_URI: "alertmanager"
-  #   #   CONFIG_FILE: "/tmp/config.yml"
-  #   #   TEMPLATE_FILE: "/tmp/card.tmpl"
-  #   # volumes:
-  #   #   - /opt/prometheus-msteams/config.yml:/tmp/config.yml
-  #   #   - /opt/prometheus-msteams/card.tmpl:/tmp/card.tmpl
-  # depends_on:
-  #   - prometheus
-
   alertmanager:
     image: prom/alertmanager:latest
     # container_name: alertmanager
@@ -91,21 +79,6 @@ services:
     # command: -server -template-file /default-message-card.tmpl
     depends_on:
       - prometheus
-
-  # prometheus-msteams:
-  #   image: faizan44/prometheus-msteams-arm64
-  #   ports:
-  #     - "2000:2000"
-  #   environment:
-  #     TEAMS_INCOMING_WEBHOOK_URL: "<--->" # Your actual webhook URL here
-  #     TEAMS_REQUEST_URI: "alertmanager"
-  #   #   CONFIG_FILE: "/tmp/config.yml"
-  #   #   TEMPLATE_FILE: "/tmp/card.tmpl"
-  #   # volumes:
-  #   #   - /opt/prometheus-msteams/config.yml:/tmp/config.yml
-  #   #   - /opt/prometheus-msteams/card.tmpl:/tmp/card.tmpl
-  #   depends_on:
-  #     - prometheus
 
 volumes:
   natures-cart_celery-logs:
